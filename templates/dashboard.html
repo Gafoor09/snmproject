@@ -12,6 +12,7 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
+
 <body>
 
     <!-- Navbar -->
@@ -46,8 +47,8 @@
                 </a>
 
                 <ul class="dropdown-menu">
-                    <li><a href="#">Upload File</a></li>
-                    <li><a href="#">View All Files</a></li>
+                    <li><a href="{{url_for('fileupload')}}">Upload File</a></li>
+                    <li><a href="{{url_for('viewallfiles')}}">View All Files</a></li>
                 </ul>
             </li>
             
@@ -61,15 +62,24 @@
         </ul>
 
         <!-- Search -->
-        <div class="search-box">
-            <input type="text" placeholder="Search..." />
+         <form method="post" action="{{url_for('searchdata')}}">
+        <div class="search-box" >
+            <input type="text" name="search" placeholder="Search..." />
             <button>
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </div>
-
+        </form>
     </nav>
     {{session.get('user')}}
+    <center>{% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+</center>
     <!-- Hero Section -->
      {% block content %}
     <section class="hero">

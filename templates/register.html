@@ -71,11 +71,18 @@
 <body>
 
 <div class="container">
+     {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+      {{ message }}
+    {% endfor %}
+  {% endif %}
+{% endwith %}
     <h2>Create Account</h2>
     <form method="post">
         <input type="text" name="username" placeholder="Username" required>
-        <input type="email" name="useremail" placeholder="Email" required>
-        <input type="password" name="userpassword" placeholder="Password" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
         <button type="submit">Register</button>
     </form>
 

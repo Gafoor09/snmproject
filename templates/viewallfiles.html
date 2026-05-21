@@ -8,23 +8,23 @@
 
 <div class="container">
 
-    <h1>View Notes</h1>
+    <h1>View Files</h1>
 
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Title</th>
+                <th>FileID</th>
+                <th>Filename</th>
                 <th>Date Created</th>
                 <th>View</th>
-                <th>Update</th>
+                <th>Download</th>
                 <th>Delete</th>
             </tr>
         </thead>
 
         <tbody>
 
-            {% for note in stored_allnotesdata %}
+            {% for note in stored_allfilesdata %}
 
             <tr>
                 <td data-label="ID">{{ note[0] }}</td>
@@ -34,15 +34,15 @@
                 <td data-label="Date">{{ note[2] }}</td>
 
                 <td data-label="View">
-                    <a href="{{url_for('viewnotes',nid=note[0])}}" class="view-btn">View</a>
+                    <a href="{{url_for('viewfile',fid=note[0])}}" class="view-btn">View</a>
                 </td>
 
                 <td data-label="Download">
-                    <a href="{{url_for('updatenotes',nid=note[0])}}" class="download-btn">update</a>
+                    <a href="{{url_for('downloadfile',fid=note[0])}}" class="download-btn">Download</a>
                 </td>
 
                 <td data-label="Delete">
-                    <a href="{{url_for('deletenote',nid=note[0])}}" class="delete-btn">Delete</a>
+                    <a href="{{url_for('deletefile',fid=note[0])}}" class="delete-btn">Delete</a>
                 </td>
             </tr>
 

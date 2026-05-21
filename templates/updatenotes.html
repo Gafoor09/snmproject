@@ -6,7 +6,7 @@
 
 <div class="form-container">
     <div class="form-card">
-        <h2>Update Note</h2>
+        <h2>Update notes</h2>
 
         <form method="POST">
 
@@ -16,7 +16,8 @@
                 <textarea 
                     id="title" 
                     name="title" 
-                    rows="2"></textarea>
+                    rows="2" 
+                    >{{stored_notesdata[1]}}</textarea>
             </div>
 
             <!-- Description -->
@@ -26,7 +27,7 @@
                     id="description" 
                     name="description" 
                     rows="6" 
-                    ></textarea>
+                   >{{stored_notesdata[2]}}</textarea>
             </div>
 
             <!-- Submit -->
